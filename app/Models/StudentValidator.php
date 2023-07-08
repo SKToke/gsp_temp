@@ -13,6 +13,7 @@ use App\Models\Admin\Settings\Occupation;
 use App\Models\Admin\Settings\Union;
 use App\Models\Admin\Settings\Upazila;
 use Illuminate\Support\Arr;
+use Illuminate\Support\Facades\Gate;
 use Illuminate\Validation\Rule;
 use Illuminate\Validation\Rules\Enum;
 
@@ -31,8 +32,8 @@ class StudentValidator
             'department_id' => ['nullable', Rule::exists(Department::class, 'id')],
             'academic_session_id' => ['nullable', Rule::exists(AcademicSession::class, 'id')],
             'recipients_disability_id' => ['nullable', Rule::exists(Disability::class, 'id')],
-            'primary_mobile' => ['nullable'],
-            'secondary_mobile' => ['nullable'],
+            'primary_mobile' => ['nullable','digits:11'],
+            'secondary_mobile' => ['nullable','digits:11'],
             'dob' => ['required', 'array'],
             'dob.day' => ['required'],
             'dob.month' => ['required'],
@@ -52,14 +53,14 @@ class StudentValidator
             'father_age' => ['nullable', 'int'],
             'father_occupation_id' => ['nullable', Rule::exists(Occupation::class, 'id')],
             'father_disability_id' => ['nullable', Rule::exists(Disability::class, 'id')],
-            'father_mobile' => ['nullable'],
+            'father_mobile' => ['nullable','digits:11'],
             'mother_name' => ['nullable'],
             'mother_living_status' => ['nullable', new Enum(LivingStatus::class)],
             'mother_age' => ['nullable', 'int'],
             'mother_occupation_id' => ['nullable', Rule::exists(Occupation::class, 'id')],
             'mother_disability' => ['nullable', Rule::exists(Disability::class, 'id')],
-            'mother_mobile' => ['nullable'],
-            'other_guardian_mobile' => ['nullable'],
+            'mother_mobile' => ['nullable','digits:11'],
+            'other_guardian_mobile' => ['nullable','digits:11'],
             'number_of_family_member' => ['nullable'],
             'bank_id' => ['nullable', Rule::exists(Bank::class, 'id')],
             'bank_account_number' => ['nullable'],
@@ -73,7 +74,7 @@ class StudentValidator
             'profile_picture' => ['nullable', 'file', 'mimes:png,jpg','max:100'],
             'nid_document' => ['nullable', 'file', 'mimes:png,jpg,pdf','max:100'],
             'bank_statement' => ['nullable', 'file', 'mimes:png,jpg,pdf','max:100'],
-            'result_document' => ['required', 'file', 'mimes:png,jpg,pdf','max:100'],
+            'result_document' => [Rule::requiredIf(!Gate::check('admin')), 'file', 'mimes:png,jpg,pdf','max:100'],
             'result_remarks' => ['nullable'],
         ];
         $messages = [

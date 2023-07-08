@@ -27,7 +27,6 @@ class Student extends Model
 {
     protected $casts = [
         'is_updated' => 'bool',
-        'dob' => 'date',
         'father_dob' => 'datetime:Y-m-d',
         'mother_dob' => 'datetime:Y-m-d',
         'status' => StudentStatus::class,

@@ -30,6 +30,7 @@ if (!function_exists('updateStudent')) {
             if ($attributes['password']) {
                 $user = $student->user()->first();
                 $user->password = $attributes['password'];
+                $user->email = $attributes['email'];
                 $user->save();
             }
             $student->save();

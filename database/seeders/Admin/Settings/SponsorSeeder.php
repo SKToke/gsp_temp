@@ -19,7 +19,14 @@ class SponsorSeeder extends Seeder
             ['id' => 2, 'name' => 'Akij Group'],
             ['id' => 3, 'name' => 'Shanta Holdings Ltd'],
             ['id' => 4, 'name' => 'Kohinoor Chemical Company Limited'],
-            ['id' => 5, 'name' => 'AK Khan Foundation']
+            ['id' => 5, 'name' => 'AK Khan Foundation'],
+            ['id' => 6, 'name' => 'BSRM'],
+            ['id' => 7, 'name' => 'KDA Group'],
+            ['id' => 8, 'name' => 'Mrs. Mahbuba Sharmin'],
+            ['id' => 9, 'name' => 'Quality Feeds Ltd'],
+            ['id' => 10, 'name' => 'FCI BD'],
+            ['id' => 11, 'name' => 'VIYELLATEX Group'],
+            ['id' => 12, 'name' => 'CZM Open Fund'],
         ];
         Sponsor::insert($data);
     }

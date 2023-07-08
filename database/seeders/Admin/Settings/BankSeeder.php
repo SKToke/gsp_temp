@@ -125,6 +125,9 @@ class BankSeeder extends Seeder
             ['id' => '105', 'name' => 'National Bank of Pakistan', 'type' => 'Foreign Commercial'],
             ['id' => '106', 'name' => 'ICICI Bank', 'type' => 'Foreign Commercial'],
             ['id' => '107', 'name' => 'Habib Bank Limited', 'type' => 'Foreign Commercial'],
+            ['id' => '108', 'name' => 'City Bank Limited', 'type' => 'Private Commercial'],
+            ['id' => '109', 'name' => 'Bkash Limited', 'type' => 'Private Commercial'],
+            ['id' => '110', 'name' => 'Nagad Limited', 'type' => 'Private Commercial'],
         ];
         foreach ($data as $item) {
             Bank::create([

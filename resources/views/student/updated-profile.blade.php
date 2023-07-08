@@ -31,7 +31,7 @@
                                 <th scope="row">Religion</th>
                                 <td>{{ $student->religion?->name }}</td>
                                 <th scope="row">Date of Birth</th>
-                                <td>{{ $student->dob->format('Y M d') }}</td>
+                                <td>{{ $student->dob }}</td>
                             </tr>
                             <tr>
                                 <th scope="row">Blood Group</th>
@@ -103,7 +103,7 @@
                                 <th scope="row">Father Living Status</th>
                                 <td>{{ $student->father_living_status }}</td>
                                 <th scope="row">Father Date of Birth</th>
-                                <td>{{ $student->father_dob->format('Y M d') }}</td>
+                                <td>{{ $student->father_dob }}</td>
                             </tr>
                             <tr>
                                 <th scope="row">Father Occupation</th>
@@ -120,7 +120,7 @@
                                 <th scope="row">Mother Living Status</th>
                                 <td>{{ $student->mother_living_status }}</td>
                                 <th scope="row">Mother Date of Birth</th>
-                                <td>{{ $student->mother_dob->format('Y M d') }}</td>
+                                <td>{{ $student->mother_dob }}</td>
                             </tr>
                             <tr>
                                 <th scope="row">Mother Occupation</th>

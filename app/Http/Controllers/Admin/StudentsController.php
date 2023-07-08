@@ -7,6 +7,7 @@ use App\Enums\Gender;
 use App\Enums\Religion;
 use App\Enums\StudentStatus;
 use App\Http\Controllers\Controller;
+use App\Models\Admin\Settings\Batch;
 use App\Models\Admin\Settings\Department;
 use App\Models\Admin\Settings\Disability;
 use App\Models\Admin\Settings\District;
@@ -33,6 +34,7 @@ class StudentsController extends Controller
             'institute_id' => ['nullable', Rule::exists(Institute::class, 'id')],
             'department_id' => ['nullable', Rule::exists(Department::class, 'id')],
             'disability_id' => ['nullable', Rule::exists(Disability::class, 'id')],
+            'batch_id' => ['nullable', Rule::exists(Batch::class, 'id')],
             'district_id' => ['nullable', Rule::exists(District::class, 'id')],
         ]);
 
@@ -46,6 +48,7 @@ class StudentsController extends Controller
         $institute_id = $attributes['institute_id'] ?? null;
         $department_id = $attributes['department_id'] ?? null;
         $district_id = $attributes['district_id'] ?? null;
+        $batch_id = $attributes['batch_id'] ?? null;
 
         $students = Student::whereRelation('user', 'status', '=', CommonStatus::Active->name)
             ->when($status, fn($q) => $q->where('status', $status))
@@ -56,6 +59,7 @@ class StudentsController extends Controller
             ->when($institute_id, fn($q) => $q->where('institute_id', $institute_id))
             ->when($department_id, fn($q) => $q->where('department_id', $department_id))
             ->when($district_id, fn($q) => $q->where('district_id', $district_id))
+            ->when($batch_id, fn($q) => $q->where('batch_id', $batch_id))
             ->when($search, function ($sql) use ($search) {
                 $sql->where('gsp_id', 'like', '%' . $search . '%')
                     ->orWhere('recipient_name', 'like', '%' . $search . '%')

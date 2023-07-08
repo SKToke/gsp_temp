@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Enums\CommonStatus;
+use App\Enums\StudentStatus;
 use App\Http\Controllers\Controller;
 use App\Imports\DataImport;
 use App\Models\Admin\Settings\AcademicSession;
@@ -102,7 +103,7 @@ class DataImportController extends Controller
 
                 if ($user) {
                     ++$totalFound;
-                    continue;
+//                    continue;
                 };
                 ++$totalNew;
 
@@ -114,8 +115,8 @@ class DataImportController extends Controller
                     'role' => User::STUDENT,
                     'status' => CommonStatus::Active
                 ]);
-                $this->byRaw($user, $row);
-//                $this->byRef($user, $row);
+//                $this->byRaw($user, $row);
+                $this->byRef($user, $row);
             }
             return [$totalFound, $totalNew];
         });
@@ -218,7 +219,7 @@ class DataImportController extends Controller
             'nid_number' => $row['nid_number'] ?? null,
             'permanent_address' => $row['permanent_address'] ?? null,
             'union_id' => $row['union_id'] ?? null,
-            'upazila_id' => $row['thana'] ?? null,
+//            'upazila_id' => $row['thana'] ?? null,
             'district_id' => $row['district'] ?? null,
             'hsc_result' => $row['hsc_result'] ?? null,
             'ssc_result' => $row['ssc_result'] ?? null,

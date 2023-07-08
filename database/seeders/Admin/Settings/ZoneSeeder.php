@@ -28,7 +28,8 @@ class ZoneSeeder extends Seeder
             array(10, 'Sylhet', NULL, '2023-06-30 08:01:21', '2023-06-30 08:01:21'),
             array(11, 'Cumilla', NULL, '2023-06-30 08:01:21', '2023-06-30 08:01:21'),
             array(12, 'Nursing', NULL, '2023-06-30 08:01:21', '2023-06-30 08:01:21'),
-            array(13, 'CRP', NULL, '2023-06-30 08:01:21', '2023-06-30 08:01:21')
+            array(13, 'Advance Studies', NULL, '2023-06-30 08:01:21', '2023-06-30 08:01:21'),
+            array(14, 'Ph.D.', NULL, '2023-06-30 08:01:21', '2023-06-30 08:01:21'),
         ];
         foreach ($data as $item) {
             Zone::create([

@@ -166,7 +166,7 @@
                                 <div class="col-md-2">
                                     <label class="form-label">Email</label>
                                     <input type="text" class="form-control" name="email"
-                                           value="{{ $student->email }}">
+                                           value="{{ $student->user->email }}">
                                 </div>
                                 <div class="col-md-2">
                                     <label class="form-label">NID</label>

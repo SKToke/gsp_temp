@@ -263,7 +263,7 @@
                                             <label class="form-label">Your Personal Email<span
                                                     class="text-danger">*</span></label>
                                             <input type="email" class="form-control" name="email"
-                                                   value="{{ $student->email }}" required>
+                                                   value="{{ $student->user->email }}" required>
                                         </div>
                                         <div class="col-md-2">
                                             <label class="form-label">Your NID or Birth Certificate Number <span
@@ -360,7 +360,7 @@
                                             <select class="form-control form-select" name="father_occupation_id"
                                                     required>
                                                 <option value="">Select One</option>
-                                                @foreach(\App\Models\Admin\Settings\Occupation::all() as $item)
+                                                @foreach(\App\Models\Admin\Settings\Occupation::orderBy('name', 'ASC')->get()  as $item)
                                                     <option value="{{ $item->id }}"
                                                             @if($item->id == $student->father_occupation_id) selected @endif>{{ $item->name }}</option>
                                                 @endforeach
@@ -408,7 +408,7 @@
                                             <label class="form-label">Mother Occupation</label>
                                             <select class="form-control form-select" name="mother_occupation_id">
                                                 <option value="">Select One</option>
-                                                @foreach(\App\Models\Admin\Settings\Occupation::all() as $item)
+                                                @foreach(\App\Models\Admin\Settings\Occupation::orderBy('name', 'ASC')->get() as $item)
                                                     <option value="{{ $item->id }}"
                                                             @if($item->id == $student->mother_occupation_id) selected @endif>{{ $item->name }}</option>
                                                 @endforeach
@@ -432,7 +432,6 @@
                                     </div>
                                     <hr>
                                     <div class="row row-cards">
-
                                         <div class="col-md-2">
                                             <label class="form-label">Total Family Member</label>
                                             <input type="text" class="form-control" name="number_of_family_member"
@@ -472,8 +471,6 @@
                                         </div>
                                     </div>
                                     <hr>
-
-
                                     <div class="row row-cards">
                                         <div class="col-md-2 col-6">
                                             <label class="form-label">HSC Pasing Year</label>

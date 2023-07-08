@@ -101,8 +101,10 @@ class InstituteSeeder extends Seeder
             array(83, 'Universiti Sains Islam, Malaysia', 'Ph . D .', 'USIM', 'Inactive', 1, NULL, '2023-04-11 00:37:47', '2023-04-11 13:12:05', NULL),
             array(84, 'Bangabandhu Sheikh Mujibur Rahman University, Kishoreganj', 'Mymensingh', 'BSMRU', 'Active', 1, NULL, '2023-04-12 07:14:49', '2023-06-04 08:14:00', NULL),
             array(85, 'Habiganj Agricultural University', 'Sylhet', 'HAU', 'Active', 1, NULL, '2023-04-21 15:57:40', '2023-06-04 08:13:58', NULL),
-            array(86, 'Bangabandhu Sheikh Mujibur Rahman Aviation and Aerospace University', 'Dhaka', 'BSMRAAU', 'Active', 4631, NULL, '2023-05-27 08:01:17', '2023-06-04 08:13:27', NULL)
-        ];
+            array(86, 'Bangabandhu Sheikh Mujibur Rahman Aviation and Aerospace University', 'Dhaka', 'BSMRAAU', 'Active', 1, NULL, '2023-05-27 08:01:17', '2023-06-04 08:13:27', NULL),
+            array(87, 'Government Shaheed Suhrawardy College, Dhaka', 'HSC', 'GSSC', 'Active', 1, NULL, '2023-05-27 08:01:17', '2023-06-04 08:13:27', NULL),
+            array(88, 'Wuhan Institute of Technology, Wuhan, China', 'Advance Studies', 'WIT', 'Active', 1, NULL, '2023-05-27 08:01:17', '2023-06-04 08:13:27', NULL),
+            array(89, 'Tianjin University, China', 'Advance Studies', 'TU', 'Active', 1, NULL, '2023-05-27 08:01:17', '2023-06-04 08:13:27', NULL),     ];
         foreach ($data as $item) {
             Institute::create([
                 'id' => $item[0],
