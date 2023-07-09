@@ -281,7 +281,7 @@
                                             <label class="form-label">NID or Online BC (PDF, Maximum: 100KB)<span
                                                     class="text-danger">*</span></label>
                                             <input type="file" class="form-control" name="nid_document"
-                                                   accept="application/pdf" required>
+                                                   accept=".jpg,.png,application/pdf" required>
                                         </div>
                                         <div class="col-md-2">
                                             <label class="form-label">Home District</label>
@@ -467,7 +467,7 @@
                                         <div class="col-md-2">
                                             <label class="form-label">Bank Statement (PDF, Maximum 100KB)</label>
                                             <input type="file" class="form-control" name="bank_statement"
-                                                   accept="application/pdf">
+                                                   accept=".jpg,.png,application/pdf">
                                         </div>
                                     </div>
                                     <hr>
@@ -499,7 +499,7 @@
                                         </div>
                                         <div class="col-md-2 col-6">
                                             <label class="form-label">Your Current CGPA</label>
-                                            <input type="text" class="form-control" name="cgpa"
+                                            <input type="number" class="form-control" name="cgpa" step="0.01"
                                                    value="{{ $student->cgpa }}" required>
                                         </div>
                                         <div class="col-md-2">
@@ -517,8 +517,8 @@
                                         <div class="col-md-4">
                                             <label class="form-label">Studentship Certificate or Marksheet (PDF, Maximum
                                                 100KB) <span>*</span></label>
-                                            <input type="file" class="form-control" name="result_document"
-                                                   accept="application/pdf" required>
+                                            <input type="file" class="form-control" name="result_document" required
+                                            accept=".jpg,.png,application/pdf">
                                         </div>
                                         <div class="col-md-8">
                                             <label class="form-label">Remarks</label>

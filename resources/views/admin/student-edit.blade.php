@@ -357,12 +357,12 @@
                                 <div class="col-md-2">
                                     <label class="form-label">NID</label>
                                     <input type="file" class="form-control" name="nid_document"
-                                           accept="application/pdf">
+                                           accept=".jpg,.png,application/pdf">
                                 </div>
                                 <div class="col-md-2">
                                     <label class="form-label">Bank Statement</label>
                                     <input type="file" class="form-control" name="bank_statement"
-                                           accept="application/pdf">
+                                           accept=".jpg,.png,application/pdf">
                                 </div>
                                 <div class="col-md-2">
                                     <label class="form-label">Remarks</label>
@@ -373,8 +373,8 @@
                             <hr>
                             <div class="row row-cards">
                                 <div class="col-md-2">
-                                    <label class="form-label">CGPA (max 5.00)</label>
-                                    <input type="text" class="form-control" name="cgpa"
+                                    <label class="form-label">CGPA</label>
+                                    <input type="number" class="form-control" name="cgpa" step="0.01"
                                            value="{{ $student->cgpa }}">
                                 </div>
                                 <div class="col-md-2">
@@ -385,7 +385,7 @@
                                 <div class="col-md-2">
                                     <label class="form-label">Result Document</label>
                                     <input type="file" class="form-control" name="result_document"
-                                           accept="application/pdf">
+                                           accept=".jpg,.png,application/pdf">
                                 </div>
                                 <div class="col-md-2">
                                     <label class="form-label">Result Remarks</label>
