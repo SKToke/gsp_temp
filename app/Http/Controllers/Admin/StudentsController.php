@@ -25,7 +25,6 @@ class StudentsController extends Controller
     public function index(): Renderable
     {
         $attributes = \request()->validate([
-            'item' => ['nullable', 'in:10,25,50,100,200'],
             'search' => ['nullable', 'string'],
             'gender' => ['nullable', new Enum(Gender::class)],
             'religion' => ['nullable', new Enum(Religion::class)],
@@ -36,9 +35,10 @@ class StudentsController extends Controller
             'disability_id' => ['nullable', Rule::exists(Disability::class, 'id')],
             'batch_id' => ['nullable', Rule::exists(Batch::class, 'id')],
             'district_id' => ['nullable', Rule::exists(District::class, 'id')],
+            'is_updated' => ['nullable', 'in:0,1'],
         ]);
 
-        $item = $attributes['item'] ?? 10;
+        $isUpdated = $attributes['is_updated'] ?? 0;
         $search = $attributes['search'] ?? null;
         $status = $attributes['status'] ?? null;
         $gender = $attributes['gender'] ?? null;
@@ -60,6 +60,7 @@ class StudentsController extends Controller
             ->when($department_id, fn($q) => $q->where('department_id', $department_id))
             ->when($district_id, fn($q) => $q->where('district_id', $district_id))
             ->when($batch_id, fn($q) => $q->where('batch_id', $batch_id))
+            ->when($isUpdated, fn($q) => $q->where('is_updated', $isUpdated))
             ->when($search, function ($sql) use ($search) {
                 $sql->where('gsp_id', 'like', '%' . $search . '%')
                     ->orWhere('recipient_name', 'like', '%' . $search . '%')
@@ -67,9 +68,14 @@ class StudentsController extends Controller
                     ->orWhere('primary_mobile', 'like', '%' . $search . '%');
             })
             ->latest()
-            ->paginate($item)
+            ->paginate(100)
             ->withQueryString();
         return view('admin.student', compact('students'));
+    }
+
+    public function view(Student $student): Renderable
+    {
+        return view('admin.student-view', compact('student'));
     }
 
     public function edit(Student $student): Renderable

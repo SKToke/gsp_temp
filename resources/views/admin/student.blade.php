@@ -133,13 +133,10 @@
                                        value="{{ request('search') }}">
                             </div>
                             <div class="col-md-2">
-                                <label for="inputState10" class="czm-xs">Item</label>
-                                <select id="inputState10" class="form-control form-select" name="item">
-                                    <option value="10" @if('' == request('item')) selected @endif>10</option>
-                                    <option value="25" @if(25 == request('item')) selected @endif>25</option>
-                                    <option value="50" @if(50 == request('item')) selected @endif>50</option>
-                                    <option value="100" @if(100 == request('item')) selected @endif>100</option>
-                                    <option value="200" @if(200 == request('item')) selected @endif>200</option>
+                                <label for="inputState10" class="czm-xs">Updated</label>
+                                <select id="inputState10" class="form-control form-select" name="is_updated">
+                                    <option value="" @if('' == request('is_updated')) selected @endif>No</option>
+                                    <option value="1" @if(1 == request('is_updated')) selected @endif>Yes</option>
                                 </select>
                             </div>
                             <div class="col-md-2">
@@ -176,8 +173,12 @@
                                     <td class="sort-city">{{ $student->scholarship_year }}</td>
                                     <td class="sort-city">{{ $student->batch?->name }}</td>
                                     <td class="sort-city">
+                                        <a href="{{ route('students.view_single',$student->id) }}"
+                                           class="btn btn-sm btn-pill btn-yellow">
+                                            View
+                                        </a>
                                         <a href="{{ route('students.edit',$student->id) }}"
-                                           class="btn btn-sm btn-pill btn-indigo w-100">
+                                           class="btn btn-sm btn-pill btn-indigo">
                                             Edit
                                         </a>
                                     </td>

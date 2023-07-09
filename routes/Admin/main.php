@@ -24,6 +24,7 @@ Route::prefix('exim')->controller(DataImportController::class)->group(function (
 Route::prefix('students')->as('students.')->controller(StudentsController::class)->group(function () {
     Route::get('', 'index')->name('view');
     Route::get('{student}/edit', 'edit')->name('edit');
+    Route::get('{student}/view', 'view')->name('view_single');
     Route::post('{student}', 'update')->name('update');
 });
 
