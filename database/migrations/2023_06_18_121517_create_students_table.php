@@ -73,7 +73,7 @@ return new class extends Migration {
             $table->string('bank_account_number')->nullable();
             $table->foreignIdFor(Bank::class)->index()->nullable()->constrained();
             $table->string('bank_branch')->nullable();
-            $table->string('remarks')->nullable();
+            $table->longText('remarks')->nullable();
             $table->string('cgpa')->nullable();
             $table->string('running_year')->nullable();
             $table->string('result_remarks')->nullable();
