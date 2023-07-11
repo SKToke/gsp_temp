@@ -75,6 +75,21 @@
                                         </label>
                                     </div>
                                 </div>
+                                <div class="col-md-3">
+                                    <label class="form-label">Institute</label>
+                                    <select class="form-control form-select" name="institute_id">
+                                        <option value="">Select One</option>
+                                        @foreach(\App\Models\Admin\Settings\Institute::all() as $item)
+                                            <option value="{{ $item->id }}"
+                                                    @if($item->id == $student->institute_id) selected @endif>{{ $item->name }}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
+                                <div class="col-md-3">
+                                    <label class="form-label">Recipient Name</label>
+                                    <input type="text" class="form-control" name="recipient_name"
+                                           value="{{ $student->recipient_name }}">
+                                </div>
                             </div>
                             <hr>
                             <div class="row row-cards">

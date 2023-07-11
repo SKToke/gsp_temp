@@ -9,6 +9,7 @@ use App\Models\Admin\Settings\Bank;
 use App\Models\Admin\Settings\Department;
 use App\Models\Admin\Settings\Disability;
 use App\Models\Admin\Settings\District;
+use App\Models\Admin\Settings\Institute;
 use App\Models\Admin\Settings\Occupation;
 use App\Models\Admin\Settings\Union;
 use App\Models\Admin\Settings\Upazila;
@@ -29,6 +30,8 @@ class StudentValidator
     {
         $rules = [
             'is_updated' => ['in:0,1'],
+            'institute_id' => ['required', Rule::exists(Institute::class, 'id')],
+            'recipient_name' => ['required', 'string'],
             'department_id' => ['nullable', Rule::exists(Department::class, 'id')],
             'academic_session_id' => ['nullable', Rule::exists(AcademicSession::class, 'id')],
             'recipients_disability_id' => ['nullable', Rule::exists(Disability::class, 'id')],
