@@ -16,7 +16,7 @@
                                 <span>{{ auth()->user()->name }}</span>
                                 <span>(GSP ID # {{ $student->gsp_id }} )</span>
                             </h5>
-                            <p>0{{ $student->primary_mobile }}, 0{{ $student->secindary_mobile }}
+                            <p>{{ $student->primary_mobile }}, {{ $student->secindary_mobile }}
                                 , {{ $student->email }}</p> ( {{ $student->institute_id }} )
                         </div>
                     </div>
