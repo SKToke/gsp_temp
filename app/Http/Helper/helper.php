@@ -27,12 +27,14 @@ if (!function_exists('updateStudent')) {
         }
         $student->fill($finalArr);
         DB::transaction(function () use ($student, $attributes) {
+            $user = $student->user()->first();
             if ($attributes['password']) {
-                $user = $student->user()->first();
                 $user->password = $attributes['password'];
-                $user->email = $attributes['email'];
-                $user->save();
             }
+            $user->name = $attributes['recipient_name'];
+            $user->email = $attributes['email'];
+            $user->mobile = $attributes['primary_mobile'];
+            $user->save();
             $student->save();
         });
         if (!empty($attributes['profile_picture']) && is_file($attributes['profile_picture'])) {

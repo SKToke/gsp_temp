@@ -30,8 +30,8 @@ class StudentValidator
     {
         $rules = [
             'is_updated' => ['in:0,1'],
-            'institute_id' => ['required', Rule::exists(Institute::class, 'id')],
-            'recipient_name' => ['required', 'string'],
+            'institute_id' => [Rule::requiredIf(Gate::check('admin')), Rule::exists(Institute::class, 'id')],
+            'recipient_name' => [Rule::requiredIf(Gate::check('admin')), 'string'],
             'department_id' => ['nullable', Rule::exists(Department::class, 'id')],
             'academic_session_id' => ['nullable', Rule::exists(AcademicSession::class, 'id')],
             'recipients_disability_id' => ['nullable', Rule::exists(Disability::class, 'id')],

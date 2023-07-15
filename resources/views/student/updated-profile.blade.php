@@ -13,8 +13,8 @@
                         </div>
                         <div class="ms-3" style="margin-top: 130px;">
                             <h5>
-                                <span>{{ auth()->user()->name }}</span>
-                                <span>(GSP ID # {{ $student->gsp_id }} )</span>
+                                <span>{{ $student->recipient_name }}</span>
+                                <span>(GSP ID# {{ $student->gsp_id }})</span>
                             </h5>
                             <p>{{ $student->primary_mobile }}, {{ $student->secindary_mobile }}
                                 , {{ $student->email }}</p> ( {{ $student->institute_id }} )
@@ -76,14 +76,14 @@
                                 <td colspan="4">{{ $student->institute?->name }}</td>
                             </tr>
                             <tr>
-                                <th colspan="2" scope="row">Academic Decipline</th>
+                                <th colspan="2" scope="row">Academic Discipline</th>
                                 <td colspan="4">{{ $student->department?->name  }}</td>
                             </tr>
                             <tr>
                                 <th scope="row">Running Year</th>
                                 <td>{{ $student->running_year }}</td>
                                 <th scope="row">Academic Session</th>
-                                <td>{{ $student->academic_session_id }}</td>
+                                <td>{{ $student->academicSession?->name }}</td>
                                 <th scope="row">Current CGPA</th>
                                 <td>{{ $student->cgpa }}</td>
                             </tr>
