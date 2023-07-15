@@ -57,7 +57,7 @@ class LoginRequest extends FormRequest
         ];
         if (ctype_digit($key) && preg_match("/^[0-9][1-9]|[1-9][1-9]{*}$/", $key)) {
             $this->_Name = 'mobile';
-            $rules = array_merge($rules, [$this->username() => ['required', 'numeric', 'digits:10']]);
+            $rules = array_merge($rules, [$this->username() => ['required', 'numeric', 'digits_between:10,11']]);
         }
         return $rules;
     }

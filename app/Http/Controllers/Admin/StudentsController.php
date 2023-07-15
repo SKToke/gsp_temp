@@ -15,6 +15,7 @@ use App\Models\Admin\Settings\Institute;
 use App\Models\Admin\Settings\Zone;
 use App\Models\Student;
 use App\Models\StudentValidator;
+use App\Models\User;
 use Illuminate\Contracts\Support\Renderable;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
@@ -81,6 +82,14 @@ class StudentsController extends Controller
     public function edit(Student $student): Renderable
     {
         return view('admin.student-edit', compact('student'));
+    }
+
+    public function password(Student $student)
+    {
+        $user = $student->user;
+        $user->password = 123456;
+        $user->save();
+        return back()->with('status', 'Password has been successfully reset to 123456 for '.$user->name);
     }
 
     public function update(Student $student, Request $request)

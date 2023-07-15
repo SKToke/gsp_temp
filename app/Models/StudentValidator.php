@@ -61,7 +61,7 @@ class StudentValidator
             'mother_living_status' => ['nullable', new Enum(LivingStatus::class)],
             'mother_age' => ['nullable', 'int'],
             'mother_occupation_id' => ['nullable', Rule::exists(Occupation::class, 'id')],
-            'mother_disability' => ['nullable', Rule::exists(Disability::class, 'id')],
+            'mother_disability_id' => ['nullable', Rule::exists(Disability::class, 'id')],
             'mother_mobile' => ['nullable','digits:11'],
             'other_guardian_mobile' => ['nullable','digits:11'],
             'number_of_family_member' => ['nullable'],

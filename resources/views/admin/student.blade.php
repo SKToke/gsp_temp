@@ -22,6 +22,7 @@
     <!-- Page body -->
     <div class="page-body">
         <div class="container-xl">
+            <x-alert-success/>
             <div class="card">
                 <div class="card-body">
                     <form>
@@ -180,6 +181,10 @@
                                         <a href="{{ route('students.edit',$student->id) }}"
                                            class="btn btn-sm btn-pill btn-indigo">
                                             Edit
+                                        </a>
+                                        <a href="{{ route('students.password',$student->id) }}"
+                                           class="btn btn-sm btn-pill btn-teal">
+                                            Reset
                                         </a>
                                     </td>
                                 </tr>

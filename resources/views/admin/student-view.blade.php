@@ -128,7 +128,7 @@
                             <th scope="row">Running Year</th>
                             <td>{{ $student->running_year }}</td>
                             <th scope="row">Academic Session</th>
-                            <td>{{ $student->academic_session_id }}</td>
+                            <td>{{ $student->academicSession?->name }}</td>
                             <th scope="row">Current CGPA</th>
                             <td>{{ $student->cgpa }}</td>
                         </tr>

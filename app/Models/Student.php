@@ -7,6 +7,7 @@ use App\Enums\Gender;
 use App\Enums\LivingStatus;
 use App\Enums\Religion;
 use App\Enums\StudentStatus;
+use App\Models\Admin\Settings\AcademicSession;
 use App\Models\Admin\Settings\District;
 use App\Models\Admin\Settings\Upazila;
 use App\Models\Admin\Settings\Union;
@@ -133,5 +134,9 @@ class Student extends Model
     public function motherDisability(): BelongsTo
     {
         return $this->belongsTo(Disability::class,'mother_disability_id','id');
+    }
+    public function academicSession(): BelongsTo
+    {
+        return $this->belongsTo(AcademicSession::class,'academic_session_id','id');
     }
 }
