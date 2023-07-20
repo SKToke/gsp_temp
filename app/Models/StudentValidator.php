@@ -74,10 +74,10 @@ class StudentValidator
             'running_year' => ['nullable'],
             'password' => ['sometimes', 'confirmed'],
             'current_password' => [Rule::requiredIf($cpr), 'current_password'],
-            'profile_picture' => ['nullable', 'file', 'mimes:png,jpg','max:100'],
-            'nid_document' => ['nullable', 'file', 'mimes:png,jpg,pdf','max:100'],
-            'bank_statement' => ['nullable', 'file', 'mimes:png,jpg,pdf','max:100'],
-            'result_document' => [Rule::requiredIf(!Gate::check('admin')), 'file', 'mimes:png,jpg,pdf','max:100'],
+            'profile_picture' => ['nullable', 'file', 'mimes:png,jpg','max:300'],
+            'nid_document' => ['nullable', 'file', 'mimes:png,jpg,pdf','max:300'],
+            'bank_statement' => ['nullable', 'file', 'mimes:png,jpg,pdf','max:300'],
+            'result_document' => [Rule::requiredIf(!Gate::check('admin')), 'file', 'mimes:png,jpg,pdf','max:300'],
             'result_remarks' => ['nullable'],
         ];
         $messages = [
