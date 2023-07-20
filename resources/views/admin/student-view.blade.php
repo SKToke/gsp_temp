@@ -145,8 +145,8 @@
                             <td>{{ $student->father_name }}</td>
                             <th scope="row">Father Living Status</th>
                             <td>{{ $student->father_living_status }}</td>
-                            <th scope="row">Father Date of Birth</th>
-                            <td>{{ $student->father_dob }}</td>
+                            <th scope="row">Father Age</th>
+                            <td>{{ \Carbon\Carbon::parse($student->father_dob)?->age }}</td>
                         </tr>
                         <tr>
                             <th scope="row">Father Occupation</th>
@@ -161,8 +161,8 @@
                             <td>{{ $student->mother_name }}</td>
                             <th scope="row">Mother Living Status</th>
                             <td>{{ $student->mother_living_status }}</td>
-                            <th scope="row">Mother Date of Birth</th>
-                            <td>{{ $student->mother_dob }}</td>
+                            <th scope="row">Mother Age</th>
+                            <td>{{ \Carbon\Carbon::parse($student->mother_dob)?->age }}</td>
                         </tr>
                         <tr>
                             <th scope="row">Mother Occupation</th>
@@ -177,10 +177,12 @@
                             <td>{{ $student->number_of_family_member }}</td>
                             <th scope="row">Guardian Mobile</th>
                             <td>{{ $student->other_guardian_mobile }}</td>
+                            <th></th>
+                            <td></td>
                         </tr>
                         <tr>
                             <th scope="row">Remarks</th>
-                            <td colspan="3">{{ $student->remarks }}</td>
+                            <td colspan="5">{{ $student->remarks }}</td>
                         </tr>
                         <tr>
                             <td>
@@ -192,6 +194,8 @@
                                     <a href="{{asset($student->bankResource?->full_path)}}" class="btn btn-success"
                                        download>Bank Statement</a>
                                 </td>
+                            @else
+                                <td></td>
                             @endif
                             @if($student->resultResource)
                                 <td>
@@ -199,7 +203,12 @@
                                        download>Student
                                         Certificate</a>
                                 </td>
+                            @else
+                                <td></td>
                             @endif
+                            <td></td>
+                            <td></td>
+                            <td></td>
                         </tr>
                         </tbody>
                     </table>
